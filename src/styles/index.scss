@@ -1,0 +1,356 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './btn.scss';
+@import './fontcolor.scss';
+
+@font-face{
+  font-family: 'PingFangSCMedium';
+  src : url('../assets/fonts/PingFangSC-Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'PingFangSCRegular';
+  src : url('../assets/fonts/PingFangSC-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix::after {
+  content: '.';
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.clearfix:before {
+  display: block;
+  content: ' ';
+  height: 0;
+  clear: both;
+}
+
+html {
+  box-sizing: border-box;
+}
+.inghong-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+#app {
+  background: #f7f7f7;
+  .main-container {
+    min-height: 100%;
+    transition: margin-left .28s;
+    margin-left: $sideBarWidth;
+    position: relative;
+  }
+}
+
+i {
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+p {
+  -webkit-margin-after: 0em;
+  -webkit-margin-before: 0em;
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+// 加载
+.loadingImg .el-loading-spinner {
+  background: url(../assets/images/loading.png) center no-repeat;
+  background-size: 400px;
+  height: 105px;
+  margin-top: -86px !important;
+}
+.loadingImg .el-loading-spinner .circular {
+  margin-top: 48px;
+  display: none;
+}
+// 分页
+.el-select-dropdown__item.selected {
+  color: var(--orangeDark);
+}
+.el-pagination__editor.el-input .el-input__inner:focus {
+  border-color: var(--orangeDark);
+}
+.el-pagination .el-select .el-input .el-input__inner:focus {
+  border-color: var(--orangeDark);
+}
+.el-pagination button:disabled,.el-pagination button {
+  background: transparent;
+}
+.el-pagination__sizes .el-input .el-input__inner:hover {
+  border-color: var(--orangeDark);
+}
+.el-pagination button:hover {
+  color: var(--orangeDark);
+}
+.el-pagination .btn-prev, .el-pagination .btn-next {
+  background-color: transparent;
+}
+.el-pager {
+  font-weight: 400;
+  li {
+      padding: 0;
+      background: transparent;
+      min-width: 26px;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      margin-right: 12px;
+      font-size: 16px;
+      &:last-child {
+          margin-right: 0;
+      }
+      &.active {
+          color: var(--white);
+          background: var(--orangeDark);
+          border-radius: 100%;
+      }
+      &:hover {
+          &:not(.active){
+              color: var(--darkGray);
+              background: rgba(236,80,31,0.2);
+              border-radius: 100%;
+          }
+      }
+  }
+}
+// 分页end
+
+.orderConfirmation .address-box .el-collapse {
+  border: none !important;
+}
+
+.orderConfirmation .address-box .el-collapse-item__header {
+  width: 35px;
+  margin-left: calc(100% - 35px);
+  margin-top: -105px;
+  height: 105px !important;
+  line-height: inherit !important;
+  border: none !important;
+}
+
+.orderConfirmation .address-box .el-collapse-item__content {
+  overflow: hidden;
+  line-height: inherit;
+}
+
+.orderConfirmation .couponUsableList .el-collapse-item__content {
+  overflow-y: scroll;
+  max-height: 240px;
+}
+
+.goldShopDetail-container .el-tabs__nav.is-top {
+  transform: translateX(142%) !important;
+}
+
+.goldShopDetail-container .el-tabs__item.is-top {
+  font-size: 18px;
+}
+
+.orderDetail .el-card__body {
+  overflow: hidden;
+}
+
+.noticeList .el-badge__content.is-fixed.is-dot {
+  top: 10px;
+}
+
+.cart .el-badge__content.is-fixed {
+  top: 10px;
+  right: 6px;
+}
+
+.dashboard-container .fixd-item .el-badge__content.is-fixed{
+  top: 8px;
+  right: 10px;
+}
+
+// 金豆兑换中心
+.goldenBeanExchangeCenter,.preferentialBenefits{
+  .info_centent {
+    .el-tabs__item {
+        &:hover {
+          color: var(--orangeDark);
+        }
+    }
+    .el-tabs__item.is-active {
+        color: var(--orangeDark);
+    }
+    .el-tabs__active-bar {
+        background-color: var(--orangeDark);
+    }
+  }
+}
+
+// 金豆中心
+.goldenBeanCenter {
+  .info_centent {
+    .el-step__head.is-finish {
+      color: var(--orangeDark);
+      border-color: var(--orangeDark);
+    }
+    .el-step__title.is-finish {
+      color: var(--orangeDark);
+    }
+    .el-step__title.is-process {
+      color: #C0C4CC;
+      font-weight: normal;
+    }
+    .el-step__head.is-process {
+      color: #C0C4CC;
+      border-color: #C0C4CC;
+    }
+  }
+}
