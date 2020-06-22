@@ -7,6 +7,7 @@ import 'view-design/dist/styles/iview.css';
 Vue.use(ViewUI);
 
 import '@/styles/index.scss' // global css
+import '@/my-theme/index.less';
 
 import App from './App'
 import store from './store'

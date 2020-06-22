@@ -1,6 +1,5 @@
 import axios from 'axios'
 import router from '@/router';
-// import { Message, Loading } from 'element-ui'
 import store from '@/store'
 
 // 创建axios实例
@@ -22,12 +21,7 @@ service.interceptors.response.use(
   response => {
     const res = response.data
     if (res.code !== 200) {
-      // Message({
-      //   message: res.msg || 'Error',
-      //   type: 'error',
-      //   duration: 5 * 1000
-      // })
-
+      this.$Message.error(res.msg);
       // 503:Token 过期了;
       if (res.code === 503) {
           store.dispatch('user/resetToken').then(() => {
@@ -35,10 +29,9 @@ service.interceptors.response.use(
             location.reload() // 为了重新实例化vue-router对象 避免bug
         })
       }
-      // let loading = Loading.service({ fullscreen: true,background: 'rgba(0, 0, 0, 0.4)',customClass: 'loadingImg' });
-      // setTimeout(() => {
-      //   loading.close()
-      // }, 400)
+      setTimeout(() => {
+          this.$Spin.hide();
+      }, 3000);
       return
     } else {
       return res
@@ -46,11 +39,7 @@ service.interceptors.response.use(
   },
   error => {
     console.log('err' + error) // for debug
-    // Message({
-    //   message: error.message,
-    //   type: 'error',
-    //   duration: 5 * 1000
-    // })
+    this.$Message.error(error.message);
     return Promise.reject(error)
   }
 )
