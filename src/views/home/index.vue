@@ -12,7 +12,7 @@
         </FormItem>
         <FormItem label="DatePicker">
             <Row>
-                <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>-<TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
+                <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker> - <TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
             </Row>
         </FormItem>
         <FormItem label="Radio">
@@ -35,11 +35,8 @@
                 <span slot="close">Off</span>
             </i-switch>
         </FormItem>
-        <FormItem label="Slider">
-            <Slider v-model="formItem.slider" range></Slider>
-        </FormItem>
         <FormItem label="Text">
-            <Input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
+            <Input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..." />
         </FormItem>
         <FormItem>
             <Button type="primary">Submit</Button>
@@ -66,7 +63,6 @@
                     switch: true,
                     date: '',
                     time: '',
-                    slider: [20, 50],
                     textarea: ''
                 }
             }

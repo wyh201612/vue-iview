@@ -1,6 +1,7 @@
 import axios from 'axios'
 import router from '@/router';
 import store from '@/store'
+import { Message,Spin } from 'view-design'
 
 // 创建axios实例
 const service = axios.create({
@@ -21,7 +22,7 @@ service.interceptors.response.use(
   response => {
     const res = response.data
     if (res.code !== 200) {
-      this.$Message.error(res.msg);
+      Message.error(res.msg);
       // 503:Token 过期了;
       if (res.code === 503) {
           store.dispatch('user/resetToken').then(() => {
@@ -30,7 +31,7 @@ service.interceptors.response.use(
         })
       }
       setTimeout(() => {
-          this.$Spin.hide();
+          Spin.hide();
       }, 3000);
       return
     } else {
@@ -39,7 +40,7 @@ service.interceptors.response.use(
   },
   error => {
     console.log('err' + error) // for debug
-    this.$Message.error(error.message);
+    Message.error(error.message);
     return Promise.reject(error)
   }
 )

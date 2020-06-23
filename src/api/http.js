@@ -1,4 +1,6 @@
 import service from '@/utils/request'
+import { Spin } from 'view-design'
+
 /**
  * 封装axios请求
  * @param params 请求参数
@@ -7,7 +9,7 @@ import service from '@/utils/request'
 const request = (params,showLoading) => {
     return new Promise((resolve, reject) => {
         if(showLoading==true) {
-            this.$Spin.show({
+            Spin.show({
                 render: (h) => {
                     return h('div', [
                         h('Icon', {
@@ -28,7 +30,7 @@ const request = (params,showLoading) => {
                 resolve(res.data)
                 if(showLoading==true&&res.code==200) {
                     setTimeout(()=>{
-                        this.$Spin.hide()
+                        Spin.hide()
                     },400)
                 }
             }

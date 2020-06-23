@@ -16,11 +16,6 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/404',
-    component: () => import('@/views/error-page/404'),
-    meta: { title: '404',auth: false }
-  },
-  {
     path: '',
     component: Layouts,
     redirect: 'index',
